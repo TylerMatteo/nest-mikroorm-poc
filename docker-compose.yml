@@ -1,0 +1,12 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  postgres:
+    image: postgis/postgis
+    environment:
+      - POSTGRES_DB=test
+      - POSTGRES_USER=foo
+      - POSTGRES_PASSWORD=bar
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    ports:
+      - '25220:5432'
