@@ -59,6 +59,52 @@
       ],
       "checks": [],
       "foreignKeys": {}
+    },
+    {
+      "columns": {
+        "uuid": {
+          "name": "uuid",
+          "type": "uuid",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "default": "uuid_generate_v4()",
+          "mappedType": "uuid"
+        },
+        "geom": {
+          "name": "geom",
+          "type": "geometry(MultiPolygon,3857)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false
+        },
+        "district": {
+          "name": "district",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        }
+      },
+      "name": "zoning_district",
+      "schema": "public",
+      "indexes": [
+        {
+          "keyName": "zoning_district_pkey",
+          "columnNames": [
+            "uuid"
+          ],
+          "composite": false,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {}
     }
   ]
 }

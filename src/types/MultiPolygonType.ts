@@ -12,7 +12,7 @@ export class MultiPolygonType extends Type<MultiPolygon, string> {
   }
 
   convertToDatabaseValueSQL(key: string): string {
-    return `ST_GeomFromGeoJSON(${key})`;
+    return `ST_Transform(ST_GeomFromGeoJSON(${key}),3857)`;
   }
 
   convertToJSValueSQL(key: string): string {
