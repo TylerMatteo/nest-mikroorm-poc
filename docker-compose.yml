@@ -8,5 +8,6 @@ services:
       - POSTGRES_PASSWORD=bar
     volumes:
       - ./data/db:/var/lib/postgresql/data
+      - ./shapefiles:/work
     ports:
       - '25220:5432'

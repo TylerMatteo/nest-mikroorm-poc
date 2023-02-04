@@ -5,6 +5,9 @@ export class ZoningDistrictRepository extends EntityRepository<ZoningDistrict> {
   public findAllAsMvt(z: number, x: number, y: number) {
     const qb = this.createQueryBuilder();
 
+    // return qb.raw(`SELECT ST_AsMVT(mvtgeom.*) as tile from (SELECT ST_AsMVTGeom(geom, ST_TileEnvelope(${z},${x},${y})) AS geom, uuid, district
+    // FROM zoning_district
+    // WHERE ST_IsValid(geom) IS TRUE AND ST_Intersects(geom, ST_TileEnvelope(${z},${x},${y}))) as mvtgeom`);
     return qb.raw(`SELECT ST_AsMVT(mvtgeom.*) as tile from (SELECT ST_AsMVTGeom(geom, ST_TileEnvelope(${z},${x},${y})) AS geom, uuid, district
     FROM zoning_district
     WHERE ST_Intersects(geom, ST_TileEnvelope(${z},${x},${y}))) as mvtgeom`);

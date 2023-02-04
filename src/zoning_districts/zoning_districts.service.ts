@@ -16,7 +16,7 @@ export class ZoningDistrictsService {
   }
 
   async findAll(): Promise<ZoningDistrict[]> {
-    return this.zoningDistrictRepository.findAll();
+    return this.zoningDistrictRepository.findAll({ limit: 5 });
   }
 
   async create(dto: CreateZoningDistrictDto): Promise<void> {

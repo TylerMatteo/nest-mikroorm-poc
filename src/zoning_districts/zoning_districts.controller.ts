@@ -22,12 +22,15 @@ export class ZoningDistrictsController {
   @Get(':z/:x/:y.pbf')
   @Header('Content-Type', 'application/x-protobuf')
   async findAllAsMvt(@Param() params, @Res() response) {
+    console.log(`Getting tile for ${params.z}, ${params.x}, ${params.y}`);
     const result = await this.zoningDistrictService.findAllAsMvt(
       params.z,
       params.x,
       params.y,
     );
-    console.log(result.rows[0]);
+    console.log(
+      `Finished getting tile for ${params.z}, ${params.x}, ${params.y}`,
+    );
     response.send(result.rows[0].tile);
   }
 

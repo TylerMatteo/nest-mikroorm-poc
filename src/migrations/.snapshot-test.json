@@ -94,6 +94,14 @@
       "schema": "public",
       "indexes": [
         {
+          "keyName": "zoning_district_geom_idx",
+          "columnNames": [],
+          "composite": false,
+          "primary": false,
+          "unique": false,
+          "expression": "CREATE INDEX zoning_district_geom_idx on zoning_district USING GIST (geom)"
+        },
+        {
           "keyName": "zoning_district_pkey",
           "columnNames": [
             "uuid"
