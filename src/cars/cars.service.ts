@@ -17,7 +17,6 @@ export class CarsService {
 
   async create(dto: CreateCarDto): Promise<void> {
     const car = new Car(dto.make, dto.model, dto.weight);
-
     await this.carRepository.persistAndFlush(car);
   }
 }

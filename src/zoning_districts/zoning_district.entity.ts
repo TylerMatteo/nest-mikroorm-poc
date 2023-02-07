@@ -13,7 +13,7 @@ export class ZoningDistrict {
   @PrimaryKey({ type: 'uuid', defaultRaw: 'uuid_generate_v4()' })
   uuid: string;
 
-  @Property({ type: MultiPolygonType })
+  @Property({ type: MultiPolygonType, lazy: true })
   geom: MultiPolygon;
 
   @Property()

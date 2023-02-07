@@ -23,10 +23,11 @@ export class ZoningDistrictsController {
   @Header('Content-Type', 'application/x-protobuf')
   async findAllAsMvt(@Param() params, @Res() response) {
     console.log(`Getting tile for ${params.z}, ${params.x}, ${params.y}`);
+    console.log(typeof params.z);
     const result = await this.zoningDistrictService.findAllAsMvt(
-      params.z,
-      params.x,
-      params.y,
+      parseInt(params.z),
+      parseInt(params.x),
+      parseInt(params.y),
     );
     console.log(
       `Finished getting tile for ${params.z}, ${params.x}, ${params.y}`,
