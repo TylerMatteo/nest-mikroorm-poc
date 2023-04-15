@@ -1,11 +1,14 @@
-import { Module } from '@nestjs/common';
+import { Module, CacheModule } from '@nestjs/common';
 import { MikroOrmModule } from '@mikro-orm/nestjs';
 import { ZoningDistrictsController } from './zoning_districts.controller';
 import { ZoningDistrictsService } from './zoning_districts.service';
 import { ZoningDistrict } from './zoning_district.entity';
 
 @Module({
-  imports: [MikroOrmModule.forFeature({ entities: [ZoningDistrict] })],
+  imports: [
+    MikroOrmModule.forFeature({ entities: [ZoningDistrict] }),
+    CacheModule.register(),
+  ],
   exports: [ZoningDistrictsService],
   controllers: [ZoningDistrictsController],
   providers: [ZoningDistrictsService],
