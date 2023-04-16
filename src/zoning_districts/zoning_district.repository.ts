@@ -1,6 +1,6 @@
 import { EntityRepository } from '@mikro-orm/postgresql';
 import { ZoningDistrict } from './zoning_district.entity';
-import { ZoningDistrictFeatureCollection } from '../types/ZoningDistrictFeature';
+import { ZoningDistrictFeatureCollection } from '../shared/ZoningDistrictFeature';
 
 export class ZoningDistrictRepository extends EntityRepository<ZoningDistrict> {
   public async findAllAsGeojson(): Promise<ZoningDistrictFeatureCollection> {

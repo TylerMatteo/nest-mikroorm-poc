@@ -3,7 +3,7 @@ import { InjectRepository } from '@mikro-orm/nestjs';
 import { ZoningDistrictRepository } from './zoning_district.repository';
 import { ZoningDistrict } from './zoning_district.entity';
 import { CreateZoningDistrictDto } from './createZoningDistrict.dto';
-import { ZoningDistrictFeatureCollection } from '../types/ZoningDistrictFeature';
+import { ZoningDistrictFeatureCollection } from '../shared/ZoningDistrictFeature';
 
 @Injectable()
 export class ZoningDistrictsService {
